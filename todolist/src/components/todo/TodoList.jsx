@@ -1,4 +1,4 @@
-import TodoItem from "./TodoItem"
+import TodoItem from "./TodoItem";
 
 const TodoList = ({ title, todos, setTodos }) => {
   return (
@@ -15,4 +15,4 @@ const TodoList = ({ title, todos, setTodos }) => {
   );
 };
 
-export default TodoList
+export default TodoList;

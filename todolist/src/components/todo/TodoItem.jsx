@@ -1,5 +1,5 @@
 const TodoItem = ({ todo, setTodos }) => {
-  const { id, title, content } = todo;
+  const { id, title, content, isDone } = todo;
 
   const deleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
@@ -12,6 +12,7 @@ const TodoItem = ({ todo, setTodos }) => {
       )
     );
   };
+
   return (
     <div className="todo-card">
       <h3 className="todo-title">{title}</h3>

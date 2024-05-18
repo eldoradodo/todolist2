@@ -1,36 +1,35 @@
-const TodoForm = () => {
-  const onSunmit = (e) => {
-    e.preventDeafault();
+const TodoForm = ({ setTodos }) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
 
     const formData = new FormData(e.target);
-    const title = new formData.get("title");
-    const content = new formData.get("content");
+    const title = formData.get("title");
+    const content = formData.get("content");
 
     if (!title.trim() || !content.trim())
-      return alert("제목과 내용을 입력해주세요.")
+      return alert("제목과 내용을 입력해주세요.");
 
     const nextTodo = {
       id: crypto.randomUUID(),
       title,
       content,
-      idDone: false,
+      isDone: false,
     };
 
-    setTodos(( prev ) => [nextTodo, ...prev]);
+    setTodos((prev) => [nextTodo, ...prev]);
 
     e.target.reset();
   };
 
-  return(
+  return (
     <div>
-      <form onSubmit={onsubmit}>
-        <input type="text" placeholder="제목" name="tilte" />
+      <form onSubmit={onSubmit}>
+        <input type="text" placeholder="제목" name="title" />
         <input type="text" placeholder="내용" name="content" />
-
         <button type="submit">추가</button>
-        </form>
+      </form>
     </div>
-  )
+  );
 };
 
 export default TodoForm;
